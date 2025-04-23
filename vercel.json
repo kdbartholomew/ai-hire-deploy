@@ -1,13 +1,12 @@
-
 {
-    "builds": [
-      {
-        "src": "package.json", 
-        "use": "@vercel/next"
-      },
-      {
-        "src": "requirements.txt",
-        "use": "@vercel/python"
-      }
-    ]
+  "version": 3,
+  "builds": [
+    {
+      "src": "frontend/next.config.mjs",
+      "use": "@vercel/next"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_BACKEND_URL": "https://ai-hire-backend-1010836661957.us-central1.run.app"
   }
+}

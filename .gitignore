@@ -1,7 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
+# Ignore root node_modules
+/node_modules/
+
+# Ignore frontend node_modules
+/frontend/node_modules/
+
+# Added trailing slash to be explicit
 /.pnp
 .pnp.*
 .yarn/*
@@ -13,18 +18,23 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+# next.js (frontend)
+# keep your frontend folder separate for clarity
+/frontend/.next/
+/frontend/out/
 
-# production
+# production build folder (general)
 /build
+
+# backend Python caches (added)
+/backend/__pycache__/
+/backend/*.pyc
 
 # misc
 .DS_Store
 *.pem
 
-# debug
+# debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -32,10 +42,23 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# Consider .env.production is in use, so it's better to ignore all by default
 
 # vercel
-.vercel
+.vercel/
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE / Editor folders (added)
+.vscode/
+.idea/
+
+# Python virtual environments (added in case)
+.env/
+venv/
+
+
+# Ignore old source backup folder if not needed in repo
+/src_old/

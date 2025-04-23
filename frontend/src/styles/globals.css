@@ -1,0 +1,298 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary-gradient-start: #00b09b;
+  --primary-gradient-end: #96c93d;
+  --btn-shadow-color: rgba(150, 201, 61, 0.7);
+  --input-bg: #f9f9f9;
+  --input-border: #ccc;
+  --input-focus-border: #96c93d;
+  --error-color: #ff6b6b;
+  --warning-color: #ffa500;
+  --success-color: #4caf50;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --input-bg: #222;
+    --input-border: #444;
+    --input-focus-border: #96c93d;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* NAV BUTTONS - consistent across all pages */
+
+.nav-button,
+.btn {
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  cursor: pointer;
+}
+
+.nav-button:hover,
+.nav-button:focus,
+.btn:hover,
+.btn:focus {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+/* Specific button color variations */
+
+.btn-applicant,
+.nav-button-applicant {
+  background: linear-gradient(90deg, #7b2ff7, #f107a3);
+  box-shadow: 0 4px 15px rgba(123, 47, 247, 0.7);
+}
+
+.btn-recruiter,
+.nav-button-recruiter {
+  background: linear-gradient(90deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  box-shadow: 0 4px 15px var(--btn-shadow-color);
+}
+
+.btn-home,
+.nav-button-home {
+  background: linear-gradient(90deg, #9d50bb, #6e48aa);
+  box-shadow: 0 4px 15px rgba(157, 80, 187, 0.7);
+}
+
+/* Homepage styles */
+
+.homepage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  color: #eee;
+  font-family: 'Georgia', serif;
+  text-align: center;
+}
+
+.container {
+  max-width: 480px;
+  width: 100%;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #9d50bb, #6e48aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 3rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.subtext {
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: #aaa;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Recruiter page styles */
+
+.recruiter-page {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  color: #eee;
+  font-family: 'Georgia', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.recruiter-container {
+  background: var(--background);
+  color: var(--foreground);
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.recruiter-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+input[type="text"],
+textarea,
+input[type="file"],
+input[type="number"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid var(--input-border);
+  background: var(--input-bg);
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: border-color 0.3s ease;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+input[type="file"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 8px var(--input-focus-border);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  box-shadow: 0 4px 15px var(--btn-shadow-color);
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 2rem;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px var(--btn-shadow-color);
+  outline: none;
+}
+
+/* Applicant page styles - similar to recruiter for consistency */
+
+.applicant-page {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  color: #eee;
+  font-family: 'Georgia', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.applicant-container {
+  background: var(--background);
+  color: var(--foreground);
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* Results section */
+
+.results-heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+}
+
+.results-message {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.results-message.warning {
+  color: var(--warning-color);
+  font-weight: 700;
+}
+
+.results-message.success {
+  color: var(--success-color);
+  font-weight: 700;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 3rem;
+  max-width: 100%;
+  text-align: left;
+  color: var(--foreground);
+}
+
+.results-list li {
+  background: var(--input-bg);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .recruiter-container,
+  .applicant-container {
+    padding: 1.5rem 1.5rem;
+  }
+}

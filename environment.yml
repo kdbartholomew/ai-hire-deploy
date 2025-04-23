@@ -1,0 +1,16 @@
+name: ai-hire-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy=1.24.0
+  - pandas=1.5.3
+  - pymupdf=1.25.5         # Conda handles this more cleanly than pip
+  - pip:
+      - sentence-transformers==2.2.2       # For embeddings (adjust version if needed)
+      - fastapi==0.95.0                    # Modern API framework, lightweight
+      - uvicorn[standard]==0.22.0          # ASGI server for FastAPI (for local dev)
+      - pdfplumber==0.7.6                  # PDF text extraction (simple and effective)
+      - python-multipart==0.0.6            # To support multipart/form-data in FastAPI uploads
